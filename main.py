@@ -113,22 +113,21 @@ def get_ingredients_from_food_image(image_file: str):
 # UI
 st.markdown("# Vietnamse food classification and ingredients extraction")
 st.markdown(
-    "This web app can used to classify 3 dishes such as Pho, Mi Quang and Banh Mi. It can then extract ingredients that the model sees in the image!"
+    "This web app can classify 3 dishes such as Pho, Mi Quang and Banh Mi. It can then extract ingredients that the model sees in the image!"
 )
 
 
 uploaded_file = st.file_uploader("Upload your image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file).convert("RGB")
-    st.image(image, caption="Uploaded Image", width="stretch")
 
     # Create columns for layout
-    col1, col2, col3 = st.columns(3)
-    with col2:
-        predict_button = st.button("🔍 Predict", width="stretch")
+    col1, col2 = st.columns([1, 1.5])
+    with col1:
+        st.image(image, caption="Uploaded Image", width="stretch")
+    #     predict_button = st.button("🔍 Predict", width="stretch")
 
-    if predict_button:
-        # Preprocess
+    with col2:
         input_tensor = transform(image).unsqueeze(0)  # [1, 3, 224, 224]
         with torch.no_grad():
             outputs = model(input_tensor)
