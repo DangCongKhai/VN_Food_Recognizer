@@ -1,0 +1,11 @@
+
+
+# Ignore dataset due to large size
+**/dataset/
+
+# Ignore credentials
+**/.env
+
+# Ignore .venv
+
+**/.venv
