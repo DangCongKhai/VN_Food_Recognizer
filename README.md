@@ -35,6 +35,16 @@ source venv/bin/activate  # For Mac/Linux
 pip install -r requirements.txt
 ```
 
+4. Setting up api key
+```bash
+GEMINI_API_KEY = "<YOUR_GEMINI_API_KEY_HERE"
+```
+
+5. Run the application
+```bash
+    streamlit run main.py
+```
+
 
 ## Model Architecture and Performance
 I have only trained a simple CNN model. You can use **Transfer learning** from models such as `MobileV2Net`, `VGG16`, etc for better performance
