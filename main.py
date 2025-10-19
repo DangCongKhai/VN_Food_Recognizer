@@ -10,7 +10,6 @@ import os
 from google import genai
 import tempfile
 
-load_dotenv()
 
 LABELS = ["Banh mi", "Mi Quang", "Pho"]
 transform = transforms.Compose(
@@ -21,7 +20,7 @@ transform = transforms.Compose(
     ]
 )
 
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 ROOT_DIR = os.path.abspath(".")
 MODEL_WEIGHT_PATH = os.path.join(ROOT_DIR, "model_weights.pth")
 INGREDIENTS_EXTRATION_INSTRUCTION = """
