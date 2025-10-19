@@ -65,7 +65,7 @@ class FoodCNN(nn.Module):
 @st.cache_resource
 def load_model():
     model = FoodCNN()
-    state_dict = torch.load(MODEL_WEIGHT_PATH, weights_only=True)
+    state_dict = torch.load(MODEL_WEIGHT_PATH, weights_only=True, map_location="cpu")
     model.load_state_dict(state_dict)
     model.eval()
     return model
