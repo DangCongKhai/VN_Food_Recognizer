@@ -21,6 +21,9 @@ transform = transforms.Compose(
 )
 
 GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+if GEMINI_API_KEY == "":
+    load_dotenv()
+    GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 ROOT_DIR = os.path.abspath(".")
 MODEL_WEIGHT_PATH = os.path.join(ROOT_DIR, "model_weights.pth")
 INGREDIENTS_EXTRATION_INSTRUCTION = """
