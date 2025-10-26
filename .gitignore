@@ -9,3 +9,6 @@
 # Ignore .venv
 
 **/.venv
+
+# Ignore 30_foods_dataset
+30_foods_dataset/
